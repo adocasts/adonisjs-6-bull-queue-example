@@ -21,6 +21,7 @@ export default class MailJob extends Job {
    * Base Entry point
    */
   async handle({ mailerName, mailMessage, config }: MailJobPayload) {
+    // use @adonisjs/mail with the provided mailer name to send the complied message
     await mail.use(mailerName).sendCompiled(mailMessage, config)
   }
 
